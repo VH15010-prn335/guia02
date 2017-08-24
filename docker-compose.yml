@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  postgres:
+    
+    image: 'postgres-imagen'
+   build:./postgres./
+    environment:
+      - POSTGRES_USER:'mortal2017'
+      - POSTGRES_PASSWORD:'prn335'
+      - POSTGRES_DB:'post'
+    ports:
+      - '5432'
+    volumes:
+      - database:/var/lib/postgresql/data
+
+payara:
+ version:'2'
+
+services:
+ payara:
+
+    image:'payara-imagen'
+build:./payara./
+    ports:
+      -'4848:4848'
+      -'8080:8080'
+
+volumes:
+  database:
+
+    
